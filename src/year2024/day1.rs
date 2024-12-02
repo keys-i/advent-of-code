@@ -74,7 +74,21 @@ mod tests {
     }
 
     #[test]
+    pub fn part1_input() {
+        let part1 = part1(include_str!("../../input/2024/day1.txt"));
+
+        assert_eq!(part1, 2904518);
+    }
+
+    #[test]
     pub fn part2_example() {
         assert_eq!(part2(SAMPLE), 31);
+    }
+
+    #[test]
+    pub fn part2_input() {
+        let part2 = part2(include_str!("../../input/2024/day1.txt"));
+
+        assert_eq!(part2, 18650129);
     }
 }
