@@ -24,13 +24,9 @@ jobs:
         with:
           toolchain: stable
 
-      - name: Run Benchmarks
-        run: |
-          cargo bench > benchmark.txt
-
       - name: Parse Benchmarks and Update README.md
         run: |
-          python3 scripts/parse_benchmarks.py benchmark.txt README.md
+          python3 scripts/parse_benchmarks.py
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add README.md
