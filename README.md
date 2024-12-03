@@ -82,9 +82,10 @@ For more information, refer to the [CodSpeed documentation](https://docs.codspee
 ## Benchmark Results
 
 ## 2024
-| Day Number | Part 1 Time (µs) | Part 2 Time (µs) |
-|------------|------------------|------------------|
 <!-- BENCHMARK_RESULTS -->
+| Day Number | Part 1 Time (µs) | Part 2 Time (µs) | Total Time (µs) |
+|------------|------------------|------------------|-----------------|
+<!-- END_BENCHMARK_RESULTS -->
 
 ## Contributing
 
