@@ -1,0 +1,36 @@
+name: Update Benchmarks
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-benchmarks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Run Benchmarks
+        run: |
+          cargo install cargo-codspeed --locked
+          cargo codspeed build
+          cargo codspeed run > benchmark_results.txt
+
+      - name: Update README.md with Benchmark Results
+        run: |
+          # Generate the benchmark table from results
+          cargo run --bin generate_benchmarks
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add README.md
+          git commit -m "Update benchmark results"
+          git push
