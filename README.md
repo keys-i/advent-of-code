@@ -1,4 +1,5 @@
 # Advent of Code
+[![CodSpeed Badge](https://img.shields.io/endpoint?url=https://codspeed.io/badge.json)](https://codspeed.io/keys-i/advent-of-code)
 
 This repository contains solutions for the [Advent of Code](https://adventofcode.com/) challenges, implemented in Rust. It includes benchmarking capabilities using [CodSpeed](https://codspeed.io/) to ensure optimal performance of the solutions.
 
