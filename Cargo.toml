@@ -20,5 +20,5 @@ criterion = "0.4"
 
 [[bench]]
 name = "year2024"
-path = "benches/year2024/year2024.rs"
+path = "benches/year2024.rs"
 harness = false
