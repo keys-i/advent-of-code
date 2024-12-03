@@ -79,6 +79,13 @@ This project utilizes [CodSpeed](https://codspeed.io/) for benchmarking. To run 
 
 For more information, refer to the [CodSpeed documentation](https://docs.codspeed.io/benchmarks/rust).
 
+## Benchmark Results
+
+## 2024
+| Day Number | Part 1 Time (µs) | Part 2 Time (µs) |
+|------------|------------------|------------------|
+<!-- BENCHMARK_RESULTS -->
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
