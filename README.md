@@ -19,7 +19,8 @@ advent-of-code
 │       └── year2024.rs
 ├── input
 │   └── 2024
-│       └── day1.txt
+│       ├── day1.txt
+│       └── day2.txt
 └── src
     ├── lib.rs
     ├── main.rs
