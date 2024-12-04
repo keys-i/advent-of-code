@@ -1,5 +1,5 @@
 # Advent of Code
-[![CodSpeed Badge](https://img.shields.io/endpoint?url=https://codspeed.io/badge.json)](https://codspeed.io/keys-i/advent-of-code) [![CodSpeed](https://github.com/keys-i/advent-of-code/actions/workflows/codspeed.yml/badge.svg)](https://github.com/keys-i/advent-of-code/actions/workflows/codspeed.yml)
+[![CodSpeed Badge](https://img.shields.io/endpoint?url=https://codspeed.io/badge.json)](https://codspeed.io/keys-i/advent-of-code) [![CodSpeed](https://github.com/keys-i/advent-of-code/actions/workflows/codspeed.yml/badge.svg)](https://github.com/keys-i/advent-of-code/actions/workflows/codspeed.yml) [![Rust CI](https://github.com/keys-i/advent-of-code/actions/workflows/cargo.yml/badge.svg)](https://github.com/keys-i/advent-of-code/actions/workflows/cargo.yml) 
 
 This repository contains solutions for the [Advent of Code](https://adventofcode.com/) challenges, implemented in Rust. It includes benchmarking capabilities using [CodSpeed](https://codspeed.io/) to ensure optimal performance of the solutions.
 
