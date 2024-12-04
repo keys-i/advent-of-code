@@ -6,6 +6,7 @@ fn parse_input(input: &str) -> (SmallVec<[u32; 1024]>, SmallVec<[u32; 1024]>) {
     let mut left = SmallVec::<[u32; 1024]>::new();
     let mut right = SmallVec::<[u32; 1024]>::new();
 
+    // Avoid allocations by directly iterating over input lines and splitting
     for line in input.lines() {
         let (l, r) = line.split_once(char::is_whitespace).unwrap();
         left.push(l.parse().unwrap());
@@ -20,20 +21,15 @@ fn parse_input(input: &str) -> (SmallVec<[u32; 1024]>, SmallVec<[u32; 1024]>) {
 pub fn part1(input: &str) -> u32 {
     let (mut left, mut right) = parse_input(input);
 
-    // Sort the values using faster, in-place sorting
+    // Sort in-place using unstable sort for performance
     left.sort_unstable();
     right.sort_unstable();
 
-    // Use unchecked operations to reduce bounds checks
-    let mut sum = 0;
-    for i in 0..left.len() {
-        unsafe {
-            let l = *left.get_unchecked(i);
-            let r = *right.get_unchecked(i);
-            sum += if l > r { l - r } else { r - l };
-        }
-    }
-    sum
+    // Reduce bounds checking with iterators
+    left.iter()
+        .zip(right.iter())
+        .map(|(&l, &r)| (l as i32 - r as i32).abs() as u32)
+        .sum()
 }
 
 #[aoc(day1, part2)]
@@ -41,16 +37,18 @@ pub fn part1(input: &str) -> u32 {
 pub fn part2(input: &str) -> u32 {
     let (left, right) = parse_input(input);
 
-    // Optimize counting with direct array indexing if values are small
+    // Use a fixed-size array for counts if values are small
     let max_value = *right.iter().max().unwrap_or(&0) as usize;
-    let mut counts = vec![0; max_value + 1];
+    let mut counts = vec![0u32; max_value + 1];
     for &r in &right {
+        // Count occurrences directly
         counts[r as usize] += 1;
     }
 
-    // Calculate the sum using pre-computed counts
-    left.iter()
-        .map(|&l| counts.get(l as usize).copied().unwrap_or(0) as u32 * l)
+    // Avoid unnecessary bounds checks by iterating directly over `left`
+    left.into_iter()
+        .filter(|&l| l as usize <= max_value)
+        .map(|l| counts[l as usize] * l)
         .sum()
 }
 
