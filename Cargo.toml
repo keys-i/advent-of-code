@@ -16,7 +16,7 @@ rustc-hash = { version = "2.0" }
 smallvec = { version = "1.11" }
 
 [dev-dependencies]
-criterion = "0.4"
+codspeed-criterion-compat = "2.7.2"
 
 [[bench]]
 name = "year2024"

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-    # Ignore commits from the GitHub Actions bot
     paths-ignore:
       - README.md
   workflow_dispatch:
@@ -17,29 +16,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Get Commit Author Email
-        id: get-author
-        run: |
-          echo "author_email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_ENV
-
-      - name: Check Commit Author
-        if: env.author_email != 'actions@github.com'
-        run: echo "Commit author is not GitHub Actions. Proceeding with workflow."
-
       - name: Set up Python
-        if: env.author_email != 'actions@github.com'
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
 
       - name: Set up Rust
-        if: env.author_email != 'actions@github.com'
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
 
       - name: Parse Benchmarks and Update README.md
-        if: env.author_email != 'actions@github.com'
         run: |
           python3 scripts/parse_benchmarks.py
           git config user.name "GitHub Actions"

@@ -1,4 +1,4 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use codspeed_criterion_compat::{black_box, criterion_group, criterion_main, Criterion};
 
 macro_rules! day_bench {
     ($day:ident) => {
@@ -19,12 +19,12 @@ macro_rules! day_bench {
 }
 
 day_bench!(day1);
-// day_bench!(day2);
+day_bench!(day2);
 
 criterion_group!(
     name = year2024;
     config = Criterion::default();
-    targets = day1
+    targets = day1, day2
 );
 
 // Entry point for Criterion
