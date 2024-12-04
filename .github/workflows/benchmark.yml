@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    # Ignore commits from the GitHub Actions bot
+    paths-ignore:
+      - README.md
   workflow_dispatch:
 
 jobs:
@@ -30,10 +33,10 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add README.md
-          git commit -m "Update benchmark results"
+          git commit -m "Update benchmark results [skip ci]" || echo "No changes to commit"
           git push
 
       - name: Cleanup Temporary Files
-        if: always()
+        if: always() # Ensure cleanup runs even if a prior step fails
         run: |
           rm -f benchmark.txt
