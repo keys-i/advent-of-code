@@ -95,7 +95,7 @@ mod tests {
 
     fn create_test_file(file_path: &str, content: &str) {
         let path = Path::new(file_path);
-        let mut file = File::create(&path).expect("Unable to create test file");
+        let mut file = File::create(path).expect("Unable to create test file");
         file.write_all(content.as_bytes())
             .expect("Unable to write to test file");
     }
