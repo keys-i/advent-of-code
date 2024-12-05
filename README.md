@@ -20,13 +20,15 @@ advent-of-code
 ├── input
 │   └── 2024
 │       ├── day1.txt
-│       └── day2.txt
+│       ├── day2.txt
+│       └── day3.txt
 └── src
     ├── lib.rs
     ├── main.rs
     └── year2024
         ├── day1.rs
         ├── day2.rs
+        ├── day3.rs
         └── mod.rs
 ```
 
