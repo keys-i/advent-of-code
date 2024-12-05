@@ -89,8 +89,8 @@ For more information, refer to the [CodSpeed documentation](https://docs.codspee
 
 | Day Number | Part 1 Time (µs) | Part 2 Time (µs) | Total Time (µs) |
 |------------|------------------|------------------|-----------------|
-| 1          | 60.679           | 53.965           | 114.64           |
-| 2          | 3.3383           | 3.3326           | 6.67           |
+| 1          | 58.791           | 54.834           | 113.62           |
+| 2          | 3.1839           | 3.1810           | 6.36           |
 
 <!-- END_BENCHMARK_RESULTS -->
 
